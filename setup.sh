@@ -54,7 +54,8 @@ log "System packages ready."
 # ── Node.js 20 ────────────────────────────────────────────────
 sec "NODE.JS"
 if ! command -v node &>/dev/null; then
-  curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - -qq
+  curl -fsSL https://deb.nodesource.com/setup_20.x -o /tmp/nodesource_setup.sh
+  sudo bash /tmp/nodesource_setup.sh
   sudo apt-get install -y -qq nodejs
 fi
 log "Node.js $(node --version) ready."
